@@ -404,7 +404,7 @@ let init = async () => {
         if(peerConnection.iceConnectionState == "connected"){
 
             //reset user identities (SENDER/RECEIVER): dont t need them anymore
-            sendData("reset","");
+            //sendData("reset","");
 
         }
 

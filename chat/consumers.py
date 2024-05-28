@@ -466,6 +466,7 @@ def reset_identities():
         # get key
         key = list(user.keys())[0] 
         user[key]["identity"] = "undefined"
+        print("??",user)
 
 def set_sender_receceiver2(sender_channel,receiver_channel):
     pass

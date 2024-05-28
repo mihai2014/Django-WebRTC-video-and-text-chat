@@ -1,0 +1,35 @@
+2024-05-28 10:57:56,507 ERROR    Exception inside application: Channel name must be a valid unicode string with length < 100 containing only ASCII alphanumerics, hyphens, underscores, or periods, not None
+Traceback (most recent call last):
+  File "/home/mihai/venv2/lib/python3.10/site-packages/channels/routing.py", line 62, in __call__
+    return await application(scope, receive, send)
+  File "/home/mihai/venv2/lib/python3.10/site-packages/channels/security/websocket.py", line 37, in __call__
+    return await self.application(scope, receive, send)
+  File "/home/mihai/venv2/lib/python3.10/site-packages/channels/sessions.py", line 47, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+  File "/home/mihai/venv2/lib/python3.10/site-packages/channels/sessions.py", line 263, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+  File "/home/mihai/venv2/lib/python3.10/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+  File "/home/mihai/venv2/lib/python3.10/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+  File "/home/mihai/venv2/lib/python3.10/site-packages/channels/routing.py", line 132, in __call__
+    return await application(
+  File "/home/mihai/venv2/lib/python3.10/site-packages/channels/consumer.py", line 94, in app
+    return await consumer(scope, receive, send)
+  File "/home/mihai/venv2/lib/python3.10/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/home/mihai/venv2/lib/python3.10/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/home/mihai/venv2/lib/python3.10/site-packages/channels/consumer.py", line 73, in dispatch
+    await handler(message)
+  File "/home/mihai/venv2/lib/python3.10/site-packages/channels/generic/websocket.py", line 203, in websocket_receive
+    await self.receive(text_data=message["text"])
+  File "/home/mihai/interfon/./chat/consumers.py", line 1130, in receive
+    await self.channel_layer.send(destination_candidate, {
+  File "/home/mihai/venv2/lib/python3.10/site-packages/channels_redis/core.py", line 185, in send
+    assert self.valid_channel_name(channel), "Channel name not valid"
+  File "/home/mihai/venv2/lib/python3.10/site-packages/channels/layers.py", line 160, in valid_channel_name
+    raise TypeError(self.invalid_name_error.format("Channel", name))
+TypeError: Channel name must be a valid unicode string with length < 100 containing only ASCII alphanumerics, hyphens, underscores, or periods, not None
+86.34.170.218:48832 - - [28/May/2024:10:57:56] "WSDISCONNECT /ws/chat_interfon4/AAA/username/" - -
+
