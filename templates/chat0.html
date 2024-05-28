@@ -1,0 +1,95 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>CHAT TEST</title>
+
+    <link href="{% static '/css/main.css' %}" rel="stylesheet">
+
+</head>
+<body>
+
+    <div>
+        <div style="float:left">User: {{ user.get_username }}</div>
+
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+
+        <div style="float:clear"></div>
+    </div>
+
+    <div style = "background-color:gray">
+        <p>online users:</p>
+        <ul id = "userslist">
+        </ul>
+    </div>
+
+    <input id="chat-destination" type="text" size="100"><br>
+    <input type="hidden" id="selected-id-li" value="-">
+
+    <div>
+        <button id="startButton">Start</button>
+        <button id="stopButton">Stop</button>
+        <button onclick="test1()">Test</button>
+
+        
+            <button onclick="muteVideo()">Mute Video</button>
+            <button onclick="muteAudio()">Mute Audio</button>
+        
+    </div>
+
+    <div id="videos">
+        <video class="video-player" id="remote-video" autoplay playsinline></video>
+        <video class="video-player" id="local-video" autoplay playsinline></video>
+    </div>
+ 
+
+
+    <textarea id="chat-log" cols="100" rows="10"></textarea><br>
+    <input id="chat-message-input" type="text" size="100"><br>
+    <input id="chat-message-submit" type="button" value="Send">
+
+
+
+    <script src="{% static 'common0.js' %}"></script>
+
+
+    <script>
+        /*        
+        $(document).ready(function () {
+            //set(`{{user_name}}`);
+        });        
+        */
+
+        /*
+        room_name2 = "AAA"
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            signallingChannel2 = new WebSocket(
+                ws_scheme
+                + '://'
+                + window.location.host
+                + '/ws/chat_interfon4/'
+                + room_name2 
+                + "/"
+                + {{user_name}}
+                + '/'
+            );
+            
+            //set(`{{user_name}}`);
+            //init(`{{user_name}}`);
+        });
+        */
+
+    </script>
+    
+
+
+</body>
+
+</html>
