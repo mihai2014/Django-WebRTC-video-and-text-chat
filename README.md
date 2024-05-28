@@ -1,4 +1,4 @@
-	#This is a text and video chat using WebSockets for signallig and WebRTC for p2p video connection with Django support
+This is a text and video chat using WebSockets for signallig and WebRTC for p2p video connection with Django support
 
 
 
